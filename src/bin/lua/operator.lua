@@ -199,9 +199,9 @@ function Operator (d,k,a,c)
   l.n = l.n+1
   l[l.n] = Declaration(d,'var')
   l[l.n].name = 'tolua_value'
- end
+    end
  local f = Declaration(d,'func')
- if k == '[]' and (l[1]==nil or isbasic(l[1].type)~='number') then
+ if k == '[]' and (l[1]==nil and not (isbasic(l[1].type) =='number' or isbasic(l[1].type) =='integer')) then
   error('operator[] can only be defined for numeric index.')
  end
  f.args = l

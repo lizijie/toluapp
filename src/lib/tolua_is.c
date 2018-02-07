@@ -237,6 +237,19 @@ TOLUA_API int tolua_isnumber (lua_State* L, int lo, int def, tolua_Error* err)
 	return 0;
 }
 
+TOLUA_API int tolua_isinteger (lua_State* L, int lo, int def, tolua_Error* err)
+{
+	if (def && lua_gettop(L)<abs(lo))
+		return 1;
+	if (lua_isinteger(L,lo))
+		return 1;
+	err->index = lo;
+	err->array = 0;
+	err->type = "integer";
+	return 0;
+}
+
+
 TOLUA_API int tolua_isstring (lua_State* L, int lo, int def, tolua_Error* err)
 {
 	if (def && lua_gettop(L)<abs(lo))

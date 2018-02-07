@@ -16,11 +16,11 @@
 -- and all occurrences of "void*" will be replaced by "_userdata"
 _basic = {
  ['void'] = '',
- ['char'] = 'number',
- ['int'] = 'number',
- ['short'] = 'number',
- ['long'] = 'number',
- ['unsigned'] = 'number',
+ ['char'] = 'integer',
+ ['int'] = 'integer',
+ ['short'] = 'integer',
+ ['long'] = 'integer',
+ ['unsigned'] = 'integer',
  ['float'] = 'number',
  ['double'] = 'number',
  ['_cstring'] = 'string',
@@ -37,6 +37,7 @@ _basic = {
 
 _basic_ctype = {
  number = "lua_Number",
+ integer = "lua_Integer",
  string = "const char*",
  userdata = "void*",
  boolean = "bool",

@@ -605,16 +605,16 @@ TOLUA_API void tolua_set_call_event(lua_State* L, lua_CFunction func, char* type
 };
 */
 
-/* Map constant number
-	* It assigns a constant number into the current module (or class)
+
+/* Map constant integer
+	* It assigns a constant integer into the current module (or class)
 */
-TOLUA_API void tolua_constant (lua_State* L, const char* name, lua_Number value)
+TOLUA_API void tolua_constant (lua_State* L, const char* name, lua_Integer value)
 {
 	lua_pushstring(L,name);
-	tolua_pushnumber(L,value);
+	tolua_pushinteger(L,value);
 	lua_rawset(L,-3);
 }
-
 
 /* Map variable
 	* It assigns a variable into the current module (or class)
